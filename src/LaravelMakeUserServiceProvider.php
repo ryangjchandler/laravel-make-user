@@ -2,9 +2,9 @@
 
 namespace RyanChandler\LaravelMakeUser;
 
+use RyanChandler\LaravelMakeUser\Commands\LaravelMakeUserCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use RyanChandler\LaravelMakeUser\Commands\LaravelMakeUserCommand;
 
 class LaravelMakeUserServiceProvider extends PackageServiceProvider
 {
