@@ -2,7 +2,9 @@
 
 namespace RyanChandler\LaravelMakeUser\Commands;
 
+use Closure;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 use RyanChandler\LaravelMakeUser\MakeUser;
 
 class MakeUserCommand extends Command
@@ -19,11 +21,17 @@ class MakeUserCommand extends Command
         $email = $this->ask('Email');
         $password = $this->secret('Password');
 
-        $model::create([
+        $fields = [
             'name' => $name,
             'email' => $email,
-            'password' => $password,
-        ]);
+            'password' => Hash::make($password),
+        ];
+
+        if (MakeUser::$extend instanceof Closure) {
+            $fields = call_user_func(MakeUser::$extend, $this);
+        }
+
+        $model::create($fields);
 
         $this->info('User created successfully.');
     }
