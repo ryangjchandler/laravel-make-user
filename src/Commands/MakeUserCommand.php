@@ -28,7 +28,7 @@ class MakeUserCommand extends Command
         ];
 
         if (MakeUser::$extend instanceof Closure) {
-            $fields = call_user_func(MakeUser::$extend, $this);
+            $fields = call_user_func(MakeUser::$extend, $this, $fields);
         }
 
         $model::create($fields);
