@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace RyanChandler\LaravelMakeUser\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelMakeUserCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-make-user';
 
     public $description = 'My command';
 
